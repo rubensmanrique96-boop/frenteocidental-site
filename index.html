@@ -4,222 +4,283 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Frente Ocidental</title>
-<meta name="description" content="História militar, armamento e geopolítica. Conteúdo do @frenteocidental.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<meta name="description" content="Equipamento, livros e cursos escolhidos a dedo por quem leva história militar e tiro a sério. Frente Ocidental.">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
 <style>
-/* Layout: faixa preta, grandes letras condensadas, triângulo oliva como marca. Visual único (escuro) por escolha. */
 :root{
-  --bg:#0b0c0a;
-  --panel:#13150f;
-  --line:#2a2e22;
-  --fg:#ece9df;
-  --mute:#9a9a8c;
-  --oliva:#486536;
-  --oliva-claro:#7da05f;
-  --osso:#f4f1e6;
-  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
-  --body:"Newsreader",Georgia,"Times New Roman",serif;
-  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
-  color-scheme:dark;
-}
-*{box-sizing:border-box}
+ --bg:#eceadf;--bg2:#e2dfd0;--card:#ffffff;--fg:#161a10;--muted:#5b614e;--line:#d3cfbb;
+ --olive:#3f5124;--olive2:#2f3d1b;--lime:#c6d86a;--hero:#141a0e;--herofg:#f2efdf;
+ --ml:#2d3277;--amz:#8a4b00;--shp:#c4421a;--hot:#a82d2d;
+ --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;--body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+ --bg:#0f130b;--bg2:#171d10;--card:#ffffff;--fg:#eeebdb;--muted:#a3a98f;--line:#2a3320;--olive:#8ea64a;--olive2:#9db657}}
+:root[data-theme="dark"]{--bg:#0f130b;--bg2:#171d10;--card:#ffffff;--fg:#eeebdb;--muted:#a3a98f;--line:#2a3320;--olive:#8ea64a;--olive2:#9db657}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
-body{
-  background:var(--bg);color:var(--fg);font-family:var(--body);font-size:18px;line-height:1.6;
-  padding-left:max(16px,env(safe-area-inset-left,0px));
-  padding-right:max(16px,env(safe-area-inset-right,0px));
-  padding-block:0;
-}
-a{color:inherit}
-.wrap{max-width:1080px;margin:0 auto}
-.mono{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
-h1,h2,h3{font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:.95;margin:0;text-wrap:balance}
-
-/* topo */
-.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand svg{width:44px;height:44px;flex:none}
-.brand b{font-family:var(--display);font-size:22px;letter-spacing:.06em;text-transform:uppercase;font-weight:800}
-.nav{display:flex;gap:22px;flex-wrap:wrap}
-.nav a{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--mute)}
-.nav a:hover,.nav a:focus-visible{color:var(--fg)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.35}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--lime);outline-offset:2px}
+.w{max-width:680px;margin:0 auto;padding:0 16px}
 
 /* hero */
-.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding:64px 0 72px}
-.hero h1{font-size:clamp(56px,10vw,128px);font-weight:900;letter-spacing:-.005em}
-.hero h1 em{font-style:normal;color:var(--oliva-claro)}
-.hero p.lead{font-size:clamp(19px,2.2vw,23px);max-width:34em;color:var(--fg);margin:24px 0 32px}
-.btns{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1px solid var(--fg);color:var(--fg)}
-.btn.solid{background:var(--oliva);border-color:var(--oliva);color:#fff}
-.btn:hover,.btn:focus-visible{outline:2px solid var(--oliva-claro);outline-offset:3px}
-.emblem{justify-self:center;width:100%;max-width:380px}
-.emblem svg{width:100%;height:auto;display:block}
+.hero{background:var(--hero);color:var(--herofg);position:relative;overflow:hidden;padding:26px 0 30px}
+.hero svg.topo{position:absolute;inset:0;width:100%;height:100%;opacity:.16}
+.hero .w{position:relative}
+.top{display:flex;align-items:center;gap:10px}
+.top svg{flex:none}
+.top b{font-family:var(--display);font-weight:900;font-size:24px;letter-spacing:.04em;text-transform:uppercase}
+.top a{margin-left:auto;font-weight:600;font-size:13px;border:1.5px solid rgba(242,239,223,.35);padding:8px 12px;border-radius:999px}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(46px,14vw,78px);line-height:.9;text-transform:uppercase;margin:26px 0 12px;letter-spacing:.005em}
+h1 em{font-style:normal;color:var(--lime)}
+.hero p{margin:0;max-width:36ch;font-size:17px;color:#cfd1bd}
+.stats{display:flex;gap:18px;margin-top:20px;font-size:13px;color:#b5b9a0}
+.stats b{display:block;font-family:var(--display);font-size:30px;line-height:1;color:var(--herofg)}
 
-/* faixa de números reais do perfil: sem inventar métricas, só o que é fato do projeto */
-.strip{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.strip div{padding:22px 18px;border-right:1px solid var(--line)}
-.strip div:last-child{border-right:0}
-.strip strong{display:block;font-family:var(--display);font-size:34px;font-weight:800;text-transform:uppercase;line-height:1}
-.strip span{display:block;margin-top:6px}
+/* sticky nav */
+.nav{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 0}
+.search{display:flex;align-items:center;gap:10px;background:var(--bg2);border:1.5px solid var(--line);border-radius:12px;padding:0 14px;height:46px}
+.search svg{flex:none;color:var(--muted)}
+.search input{flex:1;min-width:0;border:0;background:transparent;font:500 16px var(--body);color:var(--fg);outline:none}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:10px 0 2px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;font:700 14px/1 var(--body);padding:11px 16px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--fg);cursor:pointer;white-space:nowrap}
+.chip[aria-pressed="true"]{background:var(--olive);border-color:var(--olive);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#10140b}}
 
-section{padding:88px 0 0}
-.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:34px}
-.sec-head h2{font-size:clamp(40px,6vw,72px)}
+/* sections */
+.sec{margin-top:30px;scroll-margin-top:120px}
+.sh{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.sh h2{font-family:var(--display);font-weight:900;font-size:clamp(30px,8.5vw,40px);line-height:1;text-transform:uppercase;margin:0}
+.sh span{font-size:13px;color:var(--muted);text-align:right;padding-bottom:3px}
+.bar{height:4px;background:linear-gradient(90deg,var(--olive) 0 56px,var(--line) 56px);margin:8px 0 14px;border-radius:2px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(min-width:560px){.grid{grid-template-columns:repeat(3,1fr)}}
 
-/* sobre */
-.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px}
-.about p{margin:0 0 18px;max-width:36em}
-.about .quote{font-style:italic;font-size:24px;line-height:1.35;border-left:3px solid var(--oliva);padding-left:20px;color:var(--osso)}
+/* featured rail */
+.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 16px 12px;margin:0 -16px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.rail .card{flex:0 0 68%;max-width:290px;scroll-snap-align:start}
 
-/* logo explicada */
-.logo-meaning{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:8px}
-.logo-meaning div{background:var(--panel);padding:26px}
-.logo-meaning h3{font-size:30px;margin-bottom:10px}
-.sw{display:inline-block;width:14px;height:14px;margin-right:10px;vertical-align:-1px;border:1px solid var(--fg)}
-
-/* pilares */
-.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
-.pillar{background:var(--panel);padding:28px 24px;display:flex;flex-direction:column;gap:12px;min-width:0}
-.pillar h3{font-size:34px}
-.pillar p{margin:0;color:var(--mute);font-size:17px}
-.pillar .mono{color:var(--oliva-claro)}
-
-/* conteúdos */
-.posts{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
-.post{background:var(--panel);border:1px solid var(--line);padding:22px;display:flex;flex-direction:column;gap:14px;min-height:170px;text-decoration:none;min-width:0}
-.post:hover,.post:focus-visible{border-color:var(--oliva-claro)}
-.post h3{font-size:26px;line-height:1}
-.post .mono{margin-top:auto}
-
-/* loja */
-.shop{background:var(--oliva);color:#fff;padding:44px;display:grid;grid-template-columns:1.3fr .7fr;gap:30px;align-items:center}
-.shop h2{font-size:clamp(36px,5vw,60px)}
-.shop p{margin:14px 0 0;max-width:32em}
-.shop .btn{border-color:#fff;color:#fff;justify-self:start}
-.shop .btn.inv{background:#fff;color:#0b0c0a}
-
-/* rodapé */
-footer{margin-top:96px;border-top:1px solid var(--line);padding:30px 0 40px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-footer p{margin:0;max-width:34em;font-size:15px;color:var(--mute)}
-
-@media (max-width:820px){
-  .hero{grid-template-columns:1fr;padding:44px 0 52px}
-  .emblem{max-width:240px;justify-self:start;order:-1}
-  .about,.shop,.logo-meaning{grid-template-columns:1fr}
-  .shop{padding:30px 22px}
-  .strip strong{font-size:26px}
-  .strip div{padding:16px 12px}
-  section{padding-top:64px}
-}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* card */
+.card{background:var(--card);color:#14170e;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(0,0,0,.12),0 6px 16px -8px rgba(0,0,0,.35);transition:transform .15s}
+.card:active{transform:scale(.985)}
+.card[hidden]{display:none}
+.ph{position:relative;aspect-ratio:1/1;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;flex:none}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:8px;display:block}
+.ph .fb{display:none;flex-direction:column;align-items:center;gap:6px;color:#8b907a;font-weight:700;font-size:12px;text-align:center;padding:12px}
+.ph.err img{display:none}.ph.err .fb{display:flex}
+.badge{position:absolute;left:8px;top:8px;font:800 10.5px/1 var(--body);letter-spacing:.05em;text-transform:uppercase;padding:6px 8px;border-radius:6px;color:#fff}
+.badge.ml{background:var(--ml)}.badge.amz{background:#232f3e}.badge.shp{background:var(--shp)}.badge.hot{background:var(--hot)}
+.top1{position:absolute;right:8px;top:8px;background:#c6d86a;color:#1b2410;font:800 10.5px/1 var(--body);letter-spacing:.06em;text-transform:uppercase;padding:6px 8px;border-radius:6px}
+.cb{padding:10px 12px 12px;display:flex;flex-direction:column;flex:1;gap:4px;border-top:1px solid #ecebe0}
+.cb h3{margin:0;font-family:var(--display);font-weight:800;font-size:19px;line-height:1.05;text-transform:uppercase;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.cb p{margin:0;font-size:13px;color:#5b614e;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;flex:1}
+.btn{margin-top:8px;display:flex;align-items:center;justify-content:center;gap:6px;background:var(--olive2);color:#fff;font:700 14px/1 var(--body);padding:12px 8px;border-radius:9px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn{background:#4a5e26}}
+.card:hover .btn{filter:brightness(1.12)}
+.empty{padding:40px 0;text-align:center;color:var(--muted)}
+.how{margin-top:30px;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:16px;font-size:14px;color:var(--muted)}
+.how b{color:var(--fg)}
+footer{margin-top:30px;padding:22px 0 34px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.55}
+footer b{color:var(--fg)}
 </style>
 </head>
 <body>
 
 
-<div class="wrap">
-  <header class="top">
-    <a class="brand" href="#topo" aria-label="Frente Ocidental, início">
-      <svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" fill="#000"/><polygon points="52,22 80,74 40,74" fill="#486536" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><polygon points="36,36 60,74 12,74" fill="#000" stroke="#fff" stroke-width="3" stroke-linejoin="round"/></svg>
-      <b>Frente Ocidental</b>
-    </a>
-    <nav class="nav" aria-label="Seções">
-      <a href="#sobre">Sobre</a>
-      <a href="#temas">Temas</a>
-      <a href="#conteudo">Conteúdo</a>
-      <a href="#loja">Loja</a>
-    </nav>
-  </header>
 
-  <main id="topo">
-    <div class="hero">
-      <div>
-        <p class="mono">Militarismo · História · Geopolítica</p>
-        <h1 style="margin-top:14px">A guerra<br>explica o <em>mundo</em></h1>
-        <p class="lead">Reels e análises sobre história militar, armamento, tradição e os conflitos que moldam a geopolítica de hoje. Feito para quem gosta de entender o que está por trás da guerra.</p>
-        <div class="btns">
-          <a class="btn solid" href="https://www.instagram.com/frenteocidental" target="_blank" rel="noopener">Seguir @frenteocidental</a>
-          <a class="btn" href="#loja">Ver seleção de equipamentos</a>
-        </div>
-      </div>
-      <div class="emblem">
-        <svg viewBox="0 0 100 100" role="img" aria-label="Logo: duas montanhas, uma preta e uma verde oliva"><rect width="100" height="100" fill="#000"/><polygon points="52,22 80,74 40,74" fill="#486536" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/><polygon points="36,36 60,74 12,74" fill="#000" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/></svg>
-      </div>
-    </div>
 
-    <div class="strip">
-      <div><strong>Instagram</strong><span class="mono">Onde tudo sai primeiro</span></div>
-      <div><strong>Reels diários</strong><span class="mono">Sempre às 18h</span></div>
-      <div><strong>Nicho</strong><span class="mono">Quem leva a sério</span></div>
-    </div>
 
-    <section id="sobre">
-      <div class="sec-head"><h2>Sobre a página</h2><span class="mono">Quem somos</span></div>
-      <div class="about">
-        <p class="quote">A história militar não é só batalha. É decisão, disciplina e consequência.</p>
-        <div>
-          <p>A Frente Ocidental nasceu para contar a guerra com mapas, fatos e o respeito que os personagens merecem. Do soldado de trincheira ao tabuleiro das potências, cada vídeo liga o passado ao que acontece nos noticiários.</p>
-          <p>Falamos de armas e equipamentos com a seriedade de quem pratica e coleciona, de tradição, liderança e dos conflitos atuais. Tudo com fonte, crédito e sem enrolação.</p>
-        </div>
-      </div>
-      <div class="logo-meaning" style="margin-top:40px">
-        <div>
-          <h3><span class="sw" style="background:#000"></span>A montanha preta</h3>
-          <p style="margin:0;color:var(--mute)">O luto por quem se doou pela soberania. Está na frente porque a memória vem antes de qualquer vitória.</p>
-        </div>
-        <div>
-          <h3><span class="sw" style="background:#486536"></span>A montanha oliva</h3>
-          <p style="margin:0;color:var(--mute)">A vitória e o Exército Brasileiro que se fez grande apesar das baixas. As duas montanhas lembram onde a FEB lutou na Itália.</p>
-        </div>
-      </div>
-    </section>
 
-    <section id="temas">
-      <div class="sec-head"><h2>O que você encontra</h2><span class="mono">Quatro frentes</span></div>
-      <div class="pillars">
-        <article class="pillar"><span class="mono">Frente 1</span><h3>História militar</h3><p>Batalhas, campanhas e decisões de comando, das trincheiras de 1914 à Segunda Guerra, com ênfase no Brasil e na FEB.</p></article>
-        <article class="pillar"><span class="mono">Frente 2</span><h3>Armas e equipamentos</h3><p>Pistolas, fuzis, fardas, botas e itens de campo. Como funcionam, por que foram adotados e o que vale a pena.</p></article>
-        <article class="pillar"><span class="mono">Frente 3</span><h3>Geopolítica atual</h3><p>Ucrânia, Oriente Médio, Ásia e eleições que mexem com a guerra, explicados com mapas e linguagem direta.</p></article>
-        <article class="pillar"><span class="mono">Frente 4</span><h3>Tradição e liderança</h3><p>Disciplina, família, fé e princípios de comando aplicados à rotina de quem quer viver com propósito.</p></article>
-      </div>
-    </section>
+<header class="hero">
+<svg class="topo" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" fill="none" stroke="#c6d86a" stroke-width="1" aria-hidden="true"><path d="M-10 230C60 200 90 250 170 220S300 150 410 190"/><path d="M-10 200C60 170 100 220 175 190S305 120 410 160"/><path d="M-10 170C60 140 105 190 180 160S310 90 410 130"/><path d="M-10 140C60 110 110 160 185 130S315 60 410 100"/><path d="M-10 110C60 80 115 130 190 100S320 30 410 70"/><path d="M-10 80C60 50 120 100 195 70S325 0 410 40"/></svg>
+<div class="w">
+ <div class="top"><svg width="40" height="30" viewBox="0 0 46 36" aria-hidden="true"><path d="M0 34 16 6l9 14 5-7 16 21z" fill="#6e8938"/><path d="M14 34 27 12l19 22z" fill="#c6d86a"/></svg><b>Frente Ocidental</b><a href="https://www.instagram.com/frenteocidental/" target="_blank" rel="noopener">Instagram</a></div>
+ <h1>O que usamos.<br><em>O que indicamos.</em></h1>
+ <p>Equipamento, livros e cursos escolhidos a dedo por quem leva história militar e tiro a sério.</p>
+ <div class="stats"><div><b id="n-all">0</b>produtos</div><div><b>4</b>lojas confiáveis</div><div><b id="n-cat">0</b>categorias</div></div>
+</div></header>
 
-    <section id="conteudo">
-      <div class="sec-head"><h2>Últimos temas</h2><span class="mono">Reels recentes</span></div>
-      <div class="posts">
-        <a class="post" href="https://www.instagram.com/frenteocidental" target="_blank" rel="noopener"><h3>Eleições nos EUA e a guerra</h3><span class="mono">Geopolítica · 04/11</span></a>
-        <a class="post" href="https://www.instagram.com/frenteocidental" target="_blank" rel="noopener"><h3>Por que três tanques da Segunda Guerra eram tão diferentes?</h3><span class="mono">História · 04/11</span></a>
-        <a class="post" href="https://www.instagram.com/frenteocidental" target="_blank" rel="noopener"><h3>Calça vermelha: o erro francês de 1914</h3><span class="mono">História · 05/11</span></a>
-        <a class="post" href="https://www.instagram.com/frenteocidental" target="_blank" rel="noopener"><h3>Um ano de internato para ser oficial do Exército</h3><span class="mono">Tradição · 06/11</span></a>
-        <a class="post" href="https://www.instagram.com/frenteocidental" target="_blank" rel="noopener"><h3>Glock: confiabilidade ou fama?</h3><span class="mono">Armamento · 07/11</span></a>
-        <a class="post" href="https://www.instagram.com/frenteocidental" target="_blank" rel="noopener"><h3>Milhares de quilômetros, montanhas, neve e fome</h3><span class="mono">História · 08/11</span></a>
-      </div>
-    </section>
+<div class="nav"><div class="w">
+ <label class="search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="q" type="search" placeholder="Buscar: coldre, coturno, mochila, livro..." aria-label="Buscar produtos" autocomplete="off"></label>
+ <div class="chips" id="chips" role="group" aria-label="Categorias"></div>
+</div></div>
 
-    <section id="loja">
-      <div class="shop">
-        <div>
-          <p class="mono" style="color:#dfe8d6">Seleção da página</p>
-          <h2 style="margin-top:10px">Equipamentos e livros que eu indico</h2>
-          <p>Separei com cuidado o que serve para praticantes, instrutores e entusiastas: coldres, botas, mochilas, livros e cursos. O link completo fica na bio do Instagram.</p>
-        </div>
-        <a class="btn inv" href="https://www.instagram.com/frenteocidental" target="_blank" rel="noopener">Abrir o link da bio</a>
-      </div>
-    </section>
-  </main>
+<main class="w">
+ <section class="sec" id="featsec"><div class="sh"><h2>Mais indicados</h2><span>Escolhas do canal</span></div><div class="bar"></div><div class="rail" id="rail"></div></section>
+ <div id="groups"></div>
+ <div class="empty" id="empty" hidden>Nada encontrado. Tente outra palavra.</div>
+ <div class="how"><b>Como funciona:</b> toque em "Ver na loja" e você vai direto ao produto na loja oficial. O preço é o mesmo; nós só recebemos uma pequena comissão.</div>
+ <footer><b>Links de afiliado.</b> Ao comprar pelos links, o Frente Ocidental pode receber uma comissão, sem custo extra para você. Como Associado da Amazon, recebemos por compras qualificadas. Preços e disponibilidade mudam sem aviso; confira na loja.</footer>
+</main>
 
-  <footer>
-    <div>
-      <div class="brand" style="margin-bottom:12px"><svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" fill="#000"/><polygon points="52,22 80,74 40,74" fill="#486536" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><polygon points="36,36 60,74 12,74" fill="#000" stroke="#fff" stroke-width="3" stroke-linejoin="round"/></svg><b>Frente Ocidental</b></div>
-      <p>Conteúdo informativo. Alguns links levam a lojas parceiras e podem render comissão à página, sem custo extra para você.</p>
-    </div>
-    <p class="mono" style="align-self:end">www.frenteocidental.com.br</p>
-  </footer>
-</div>
+<script>
+var T="?tag=frenteocident-20";
+function A(id){return "https://www.amazon.com.br/dp/"+id+T}
+function M(id){return "https://meli.la/"+id}
+function S(id){return "https://s.shopee.com.br/"+id}
+var STORE={shp:"Shopee",amz:"Amazon",ml:"Mercado Livre",hot:"Hotmart"};
+var FEAT=["B01ITAKG6A","2RrxEP1","B0D2J3JNFQ","1Vw2Tc3","850105805X","1DqymtF","1tjyg1H","9fM3QlJGos","1bWXVbw"];
+var CATS=[
+ {k:"torniquetes",n:"Torniquetes",sub:"Controle de hemorragia grave"},
+ {k:"socorros",n:"Primeiros socorros",sub:"Kits de trauma e campo"},
+ {k:"porte",n:"Coldres Kydex",sub:"Por modelo de pistola"},
+ {k:"vestuario",n:"Vestuário e calçados",sub:"Camisa, calça, chuva e camiseta"},
+ {k:"bones",n:"Bonés e balaclavas",sub:"Cobertura operacional e temática"},
+ {k:"meias",n:"Meias para coturno",sub:"Cano longo militar"},
+ {k:"chaveiros",n:"Chaveiros de pistola",sub:"Miniaturas"},
+ {k:"coturnos",n:"Coturnos e botas",sub:"Acero, Atalaia, Guartelá e Invictus"},
+ {k:"carga",n:"Mochila e lanterna",sub:"Carga e iluminação"},
+ {k:"relogio",n:"Relógio e garrafa",sub:"Resistência no dia a dia"},
+ {k:"protecao",n:"Proteção auditiva",sub:"Estande e campo"},
+ {k:"jogos",n:"Jogos",sub:"Videogame e tabuleiro"},
+ {k:"livros",n:"Livros",sub:"História e geopolítica"},
+ {k:"cursos",n:"Cursos",sub:"Tiro e carreiras militares"}
+];
+var I=[
+ ["torniquetes","amz","North American Rescue C-A-T Gen 7 – torniquete genuíno","Nota 4,9 · 5,4 mil avaliações · o padrão das forças armadas",A("B01ITAKG6A"),1],
+ ["torniquetes","amz","SOF Tourniquet 5ª geração (TacMed Solutions)","Nota 4,8 · 227 avaliações · nível militar",A("B09KKX31VS"),1],
+ ["torniquetes","amz","RATS Gen 2 – torniquete de aplicação rápida","Nota 4,8 · 1,5 mil avaliações · elástico, compacto",A("B012BZHTTQ")],
+ ["socorros","amz","Rhino Rescue – kit impermeável ultraleve, 114 peças","Nota 4,7 · 260 avaliações · cabe na mochila",A("B0CP7JC1W6"),1],
+ ["socorros","amz","Kit de primeiros socorros Curtlo","Nota 4,6 · 539 avaliações · nylon rip stop",A("B07TBS7FPH")],
+ ["socorros","amz","Kit IFAK de trauma com torniquete e bolsa Molle","Nota 4,6 · para o cinto, a mochila ou o veículo",A("B0BW9CTL77")],
+ ["carga","amz","5.11 Rush 72 2.0 – mochila de 55 L","Nota 4,8 · 3,3 mil avaliações · referência mundial",A("B09L3GYQRC"),1],
+ ["carga","amz","Mochila tática Hannibal Tactical TBP-01","Nota 4,7 · 9,7 mil avaliações",A("B0DCG1SWGX"),1],
+ ["carga","amz","SOG Tactical Day Pack","Nota 4,6 · 10,1 mil avaliações · uso diário",A("B0131SE0KI")],
+ ["carga","amz","SOG Opord Tactical Day Pack 39 L","Nota 4,6 · 3,3 mil avaliações",A("B01346K5FQ")],
+ ["vestuario","amz","ReFire Gear – camisa de combate tática","Nota 4,4 · 2,6 mil avaliações",A("B07C57HYGS")],
+ ["meias","amz","M-Tac – 2 pares de meias táticas Coolmax","Nota 4,4 · 244 avaliações · leves e respiráveis",A("B099F4RZ84")],
+ ["carga","ml","Mochila Invictus Giant Pro 72h 42-55L","+500 vendidos",M("2RrxEP1"),1],
+ ["carga","ml","Mochila Invictus Seal 2.0 40L","+100 vendidos",M("1u1hKzX")],
+ ["carga","ml","Mochila 5.11 Rush 12 2.0","marca de referência",M("2f5i5UL")],
+ ["vestuario","ml","Combat Shirt Hawk Invictus","+25 vendidos",M("1AJwobM")],
+ ["vestuario","ml","Combat Shirt Infantry Invictus 4way","+25 vendidos",M("2GXtHTp")],
+ ["vestuario","ml","Combat Shirt Leader Invictus Azul","+100 vendidos",M("2BmpArR")],
+ ["vestuario","ml","Combat T-shirt preta reforçada","+1000 vendidos",M("32CYfVL"),1],
+ ["bones","ml","Boné Invictus Rifleman Truck rip stop","+100 vendidos",M("1xA9GUG")],
+ ["bones","ml","Boné Invictus Trigger 3.0","+50 vendidos",M("26DWiCr")],
+ ["bones","ml","Boné Invictus Grip tiro esportivo","Marca Invictus",M("2anzP1i")],
+ ["bones","ml","Boné tático bandeira do Brasil bordado","+1000 vendidos",M("2P9woL7"),1],
+ ["bones","ml","Boné tático caveira camuflado","+500 vendidos",M("1PKtGp3"),1],
+ ["bones","ml","Boné militar camuflado digital","+25 vendidos",M("1nEKKNa")],
+ ["bones","ml","Boné camuflado Exército Brasileiro","+50 vendidos",M("1iWL9D8")],
+ ["bones","ml","Balaclava Invictus Chacao Air UV50+","+1000 vendidos",M("348wxco"),1],
+ ["bones","ml","Balaclava Invictus Chacao Slim Dry Tec UV50+","+50 vendidos",M("2imqHwq")],
+ ["meias","ml","Meia tática Invictus High cano alto","+1000 vendidos",M("2iuULk4"),1],
+ ["meias","ml","Kit 5 meias cano longo militar","+5mil vendidos",M("1c1QitY"),1],
+ ["meias","ml","Kit 3 pares meia cano longo militar","+1000 vendidos",M("33K8jhM"),1],
+ ["chaveiros","ml","Chaveiro pistola metal Glock 1:4","+500 vendidos",M("21YJ4AF"),1],
+ ["chaveiros","ml","Chaveiro pistola .45 Rossi 1:4","+100 vendidos",M("2RmTnQd")],
+ ["chaveiros","ml","Chaveiro mini Glock com coldre","+100 vendidos",M("2R2FSXe")],
+ ["carga","shp","Mochila tática 50 L","Nota 4,9 · +3 mil vendidos/mês",S("906MdXLoAg"),1],
+ ["carga","shp","Mochila tática 30 L","Nota 4,8",S("9APmpqLApj")],
+ ["vestuario","shp","Gandola Combat Shirt rip stop","Nota 4,7",S("9KjD29KXUm")],
+ ["vestuario","shp","Combat Shirt GCM Guntai","Nota 5,0",S("9V2dESJu9p")],
+ ["bones","shp","Boné tático caveira","Nota 4,9 · +20 mil vendidos/mês",S("9fM3QlJGos"),1],
+ ["bones","shp","Boné tático bandeira do Brasil","Nota 4,8 · +1 mil vendidos/mês",S("4fxNTap6B2")],
+ ["bones","shp","Balaclava Musion","Nota 4,9 · +30 mil vendidos/mês",S("4qGnftoSq5"),1],
+ ["bones","shp","Balaclava com visor","Nota 4,9 · +5 mil vendidos/mês",S("50aDsCnpV8")],
+ ["meias","shp","Kit meias cano longo 3/6/12 pares","Nota 4,9",S("5Ate4VnCAB"),1],
+ ["meias","shp","Kit meias cano longo 3/5/12 pares","Nota 4,8",S("1BXv16reC")],
+ ["chaveiros","shp","Chaveiro mini pistola funcional","Nota 4,8",S("9pfTdB82aX")],
+ ["porte","ml","Coldre Bélica Eagle Fit Molle","Pistola, cinto e colete · +10 mil vendidos",M("32ew4P9")],
+ ["porte","ml","Coldre Bélica Externo Molle – PT, TH, APX e G3","Universal · +5 mil vendidos",M("1xM4G9M")],
+ ["porte","ml","Coldre Bélica Externo Cintura – PT, TH, G2c e G3","Universal · +5 mil vendidos",M("2c4Ccr5")],
+ ["porte","ml","Coldre Velado Só Coldres – Glock G17 a G25","Todas as gerações · +5 mil vendidos",M("2KmNryv")],
+ ["porte","ml","Coldre de perna Robocop – Cordilheira Sport","Tático · +1000 vendidos",M("32yX1Fv")],
+ ["porte","ml","Kydex Invictus IWB 2.0 – Glock G19, G23 e G25","Glock Compact · +1000 vendidos · marca nacional de referência",M("1Vw2Tc3"),1],
+ ["porte","ml","Kydex Velado Mundo Outdoor – Glock G19, G23 e G25","+500 vendidos",M("1k3kGZf")],
+ ["porte","ml","Kydex Invictus Sidecar – Glock G17, G19 e G25","Linha premium",M("1VVupVu")],
+ ["porte","shp","Kydex Pretoriano velado – Glock G19, G19x, G23, G25 e G45","Nota 5,0 · +190 vendidos",S("7puPBXzTHC")],
+ ["porte","shp","Kydex Pretoriano IWB – Glock G22 Gen5","Nota 4,9 · +110 vendidos",S("7fayzF06cB")],
+ ["porte","shp","Kydex Pretoriano IWB – Taurus GX2","Nota 4,9 · loja Pretoriano",S("5VWUPG8M0m")],
+ ["porte","shp","Kydex Pretoriano IWB – Taurus GX4 Carry","Nota 5,0 · loja Pretoriano",S("5LD4Cx8zLl")],
+ ["porte","shp","Kydex Pretoriano IWB – Beretta APX","Nota 5,0 · loja Pretoriano",S("5q9Kns75Ks")],
+ ["porte","ml","Kydex Invictus IWB – Taurus G2c, G3 e G3c","Pistola mais vendida do país · +100 vendidos",M("1cR8cBb"),1],
+ ["porte","ml","Kydex Invictus Safe OWB – Taurus TS9 e TS40","TS9: 4ª mais vendida do país",M("1SEcoeL")],
+ ["porte","ml","Kydex Aurok velado – Taurus TH9c","Marca especializada em Kydex",M("227Cybb")],
+ ["porte","ml","Kydex IWB – Taurus PT92, PT100 e PT59","+100 vendidos",M("2gXpVDK")],
+ ["porte","ml","Kydex Invictus velado – Taurus PT92 e PT100","Linha Invictus",M("276nTY9")],
+ ["porte","ml","Kydex Sabre IWB – Taurus GX4 Carry","+500 vendidos",M("2CY7iB3")],
+ ["porte","ml","Kydex Invictus IWB 2.0 – Taurus GX4 Carry","Marca nacional de referência",M("1v1fEt3")],
+ ["coturnos","ml","Coturno Atalaia Série Ouro","+1000 vendidos · padrão de quem usa em serviço",M("1bWXVbw"),1],
+ ["coturnos","ml","Coturno Atalaia Extra Leve com zíper","+1000 vendidos · versão leve",M("2bBQCAT")],
+ ["vestuario","ml","Combat Shirt Leader Invictus","+100 vendidos · camisa de combate",M("1DqymtF")],
+ ["vestuario","ml","Calça Invictus New Combat Tecflex Ripstop","+1000 vendidos",M("2Crw8bx")],
+["coturnos","ml","Acero Tiger Pró com zíper","Couro, cano médio · +1000 vendidos",M("1pFNDzY")],
+ ["coturnos","ml","Acero Adventure couro leve","Caminhada e trekking · +100 vendidos",M("2pzeDW6")],
+ ["coturnos","ml","Invictus Arion 2.0 cano alto","Leve e reforçada · +1000 vendidos",M("119z8Dq")],
+ ["coturnos","ml","Invictus Interceptor com zíper","Tática · +100 vendidos",M("1j5GzDc")],
+ ["coturnos","ml","Guartelá Attack 3 Pro Dry","Impermeável · +1000 vendidos",M("2VKKPjP")],
+ ["coturnos","ml","Guartelá Attack 3 Dry","Impermeável · +1000 vendidos",M("2iGnKMD")],
+  ["coturnos","ml","Bota Columbia Newton Ridge Plus 2","+100 vendidos · trilha e trekking",M("29SLczw")],
+ ["vestuario","amz","Jaqueta de chuva Columbia Glennaker Lake II","Nota 4,4 · 894 avaliações",A("B0CLQV4MJ1")],
+ ["vestuario","ml","Camiseta Força Expedicionária Brasileira","+100 vendidos · temática da FEB",M("1cqtKH6")],
+ ["carga","ml","Mochila Invictus Assault Urban 35 L","+1000 vendidos · marca nacional",M("1yThJW9"),1],
+ ["carga","ml","Mochila Invictus Duster 2.0 50 L","+100 vendidos · para viagens longas",M("1B5t7mq")],
+ ["carga","ml","Lanterna Olight Baldr S 800 lúmens","+100 vendidos · marca de referência",M("1tjyg1H")],
+ ["carga","ml","Lanterna Sofirn SK40 3200 lm","+1000 vendidos · custo-benefício",M("1pvKiCZ")],
+ ["carga","amz","Streamlight ProTac 2L-X","Nota 4,7 · lanterna profissional",A("B06X6DM9XH")],
+ ["carga","amz","Streamlight Stylus Pro com coldre","Nota 4,7 · compacta",A("B0015UC17E")],
+ ["relogio","amz","Casio G-Shock DW-5600UE-1DR","Nota 4,9 · 434 avaliações · 100+ compras no mês",A("B0D2J3JNFQ"),1],
+ ["relogio","amz","Casio A158WA digital vintage","Nota 4,8 · mais vendido da categoria",A("B000GAYQJ0")],
+ ["relogio","amz","Stanley Quencher ProTour 1,18 L","Nota 4,8 · 526 avaliações · 200+ compras no mês",A("B0F61S2T6G")],
+ ["relogio","amz","Agenda 2027 executiva semanal","Nota 4,7 · 384 avaliações",A("B0HBF87VGW")],
+ ["protecao","amz","Walker's Razor Slim eletrônico","Nota 4,8 · amplifica a voz e corta o disparo",A("B01AAH8CMA")],
+ ["protecao","amz","Walker's abafador eletrônico FDE","Nota 4,8",A("B01MR1JV4E")],
+ ["protecao","amz","3M abafador Muffler","Nota 4,5 · 785 avaliações",A("B0CVSH88JM")],
+ ["protecao","amz","3M Pomp Plus (plug de silicone)","Nota 4,7 · para usar junto com o abafador",A("B0779K5FKX")],
+ ["jogos","amz","Battlefield 6 – PlayStation 5","Nota 4,8 · 306 avaliações",A("B0FQKNW19S"),1],
+ ["jogos","amz","War Edição Especial (Grow)","Nota 4,9 · tabuleiro de guerra",A("B07BSL81YD")],
+ ["jogos","amz","War (Grow)","Nota 4,8 · 800+ compras no mês",A("B077P8D5Q5")],
+ ["jogos","amz","Memoir '44 (Asmodee)","Jogo de tabuleiro da Segunda Guerra",A("B0F49YS2WN")],
+ ["jogos","amz","Scythe (Asmodee)","Nota 4,5 · 204 avaliações",A("B098V1PSBY")],
+ ["livros","amz","Stalingrado","Antony Beevor · nota 4,7 · 196 avaliações",A("850105805X"),1],
+ ["livros","amz","Berlim: A queda – 1945","Antony Beevor · nota 4,7",A("8542239644")],
+ ["livros","amz","1942: O Brasil e sua guerra quase desconhecida","Nota 4,7 · 851 avaliações",A("859508291X")],
+ ["livros","amz","O livro da Segunda Guerra Mundial","Nota 4,8 · 192 avaliações",A("6559871770")],
+ ["livros","amz","Essencial da Segunda Guerra – Box 3 livros","Nota 4,6 · 804 avaliações",A("8565042472")],
+ ["livros","amz","Queda de Gigantes (O Século – Livro 1)","Ken Follett · nota 4,8 · 3,3 mil avaliações · 1ª Guerra",A("859929685X"),1],
+ ["livros","amz","Inverno do Mundo (O Século – Livro 2)","Ken Follett · nota 4,7 · 3,4 mil avaliações · 2ª Guerra",A("8580410894")],
+ ["livros","amz","Eternidade por um Fio (O Século – Livro 3)","Ken Follett · nota 4,7 · 3,6 mil avaliações · Guerra Fria",A("8580412919")],
+ ["livros","amz","Prisioneiros da Geografia","Tim Marshall · 10 mapas que explicam o mundo",A("8537817570")],
+ ["livros","amz","O poder da geografia","Tim Marshall",A("6559790673")],
+ ["livros","amz","Guerreiros da Província","A jornada da Força Expedicionária Brasileira",A("6598435404")],
+ ["livros","amz","As grandes estratégias","De Sun Tzu a Franklin Roosevelt",A("8542215893")],
+ ["livros","amz","Os estrategistas","Churchill, Stalin, Roosevelt, Mussolini e Hitler · nota 4,8",A("8520466508")],
+ ["cursos","hot","Concurso Militar 13 em 1","Preparatório para 13 concursos militares · nota 4,4 · 18 avaliações","https://go.hotmart.com/L108326121Y",1],
+ ["cursos","hot","Biomecânica do tiro","Curso online · instrutores com credenciais",  "https://go.hotmart.com/L108237895N"]
+];
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
+function key(u){var m=u.match(/meli\.la\/([^\/?]+)/)||u.match(/shopee\.com\.br\/([^\/?]+)/)||u.match(/\/dp\/([^?]+)/)||u.match(/hotmart\.com\/([^\/?]+)/);return m?m[1]:""}
+function src(x){var k=key(x[4]);return k?x[1]+"_"+k+".jpg":""}
+function fix(el){el.parentNode.className+=" err"}
+function card(x,tag){var u=src(x);
+  return '<a class="card" data-s="'+esc((x[2]+" "+x[3]+" "+STORE[x[1]]).toLowerCase())+'" href="'+esc(x[4])+'" target="_blank" rel="sponsored noopener">'
+  +'<div class="ph">'+(u?'<img src="'+esc(u)+'" alt="'+esc(x[2])+'" loading="lazy" decoding="async" onerror="fix(this)">':'')+'<div class="fb"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3 4 7v5c0 4.5 3.3 7.6 8 9 4.7-1.4 8-4.5 8-9V7z"/></svg>Foto na loja</div>'
+  +'<span class="badge '+x[1]+'">'+STORE[x[1]]+'</span>'+(tag?'<span class="top1">'+tag+'</span>':'')+'</div>'
+  +'<div class="cb"><h3>'+esc(x[2])+'</h3><p>'+esc(x[3])+'</p><span class="btn">Ver na loja <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div></a>'}
+var rail="",groups="",chips='<button class="chip" aria-pressed="true" data-k="all">Tudo</button>';
+FEAT.forEach(function(k){var x=I.filter(function(i){return key(i[4])===k})[0];if(x)rail+=card(x,"Destaque")});
+var used=0;
+CATS.forEach(function(c){var list=I.filter(function(x){return x[0]===c.k});if(!list.length)return;used++;
+  chips+='<button class="chip" aria-pressed="false" data-k="'+c.k+'">'+esc(c.n)+'</button>';
+  groups+='<section class="sec grp" data-k="'+c.k+'" id="c-'+c.k+'"><div class="sh"><h2>'+esc(c.n)+'</h2><span>'+esc(c.sub)+'</span></div><div class="bar"></div><div class="grid">'+list.map(function(x){return card(x,x[5]?"Top":"")}).join("")+'</div></section>'});
+document.getElementById("rail").innerHTML=rail;document.getElementById("groups").innerHTML=groups;document.getElementById("chips").innerHTML=chips;
+document.getElementById("n-all").textContent=I.length;document.getElementById("n-cat").textContent=used;
+var cur="all";
+function apply(){var q=document.getElementById("q").value.trim().toLowerCase(),any=false;
+  document.getElementById("featsec").hidden=!(cur==="all"&&!q);
+  document.querySelectorAll(".grp").forEach(function(g){var show=cur==="all"||g.getAttribute("data-k")===cur,n=0;
+    g.querySelectorAll(".card").forEach(function(c){var ok=!q||c.getAttribute("data-s").indexOf(q)>-1;c.hidden=!ok;if(ok)n++});
+    g.hidden=!show||n===0;if(!g.hidden)any=true});
+  document.getElementById("empty").hidden=any}
+document.getElementById("chips").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;cur=b.getAttribute("data-k");
+  document.querySelectorAll(".chip").forEach(function(c){c.setAttribute("aria-pressed",c===b?"true":"false")});apply();window.scrollTo({top:document.querySelector(".nav").offsetTop,behavior:"smooth"})});
+document.getElementById("q").addEventListener("input",apply);
+</script>
+
 
 </body>
 </html>
