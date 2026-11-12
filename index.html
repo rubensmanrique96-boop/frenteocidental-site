@@ -58,6 +58,27 @@ h1 em{font-style:normal;color:var(--lime)}
 .rail::-webkit-scrollbar{display:none}
 .rail .card{flex:0 0 68%;max-width:290px;scroll-snap-align:start}
 
+/* destaque ebook */
+.ebk{margin-top:24px;background:radial-gradient(120% 100% at 100% 0,#34471f 0,#1b2410 60%);color:var(--herofg);border-radius:20px;padding:20px 16px 18px;border:1.5px solid var(--lime);box-shadow:0 14px 30px -14px rgba(0,0,0,.6);overflow:hidden}
+.ebk[hidden]{display:none}
+.ebk .tg{display:inline-block;background:var(--lime);color:#1b2410;font:800 10.5px/1 var(--body);letter-spacing:.06em;text-transform:uppercase;padding:6px 8px;border-radius:6px}
+.ebk .row{display:flex;gap:16px;align-items:center;margin-top:14px}
+.ebk .cv{flex:none;width:104px;aspect-ratio:3/4;border-radius:6px 10px 10px 6px;background:linear-gradient(160deg,#0f1409,#26331a);border:1px solid #4a5f2e;box-shadow:-5px 6px 0 -1px #0b0f07,0 12px 22px -6px rgba(0,0,0,.7);padding:10px 9px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.ebk .cv:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--lime);border-radius:6px 0 0 6px}
+.ebk .cv small{font:700 7px/1.1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--lime);padding-left:4px}
+.ebk .cv b{font-family:var(--display);font-weight:900;font-size:21px;line-height:.92;text-transform:uppercase;color:var(--herofg);padding-left:4px}
+.ebk .cv i{font:600 7.5px/1.2 var(--body);font-style:normal;color:#b5b9a0;padding-left:4px}
+.ebk h2{margin:0;font-family:var(--display);font-weight:900;font-size:clamp(26px,7.6vw,38px);line-height:.98;text-transform:uppercase;color:var(--herofg)}
+.ebk .lead{margin:12px 0 10px;font-size:15px;color:#cfd1bd;max-width:46ch}
+.ebk ul{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:7px;font-size:14.5px;color:var(--herofg)}
+.ebk li{display:flex;gap:9px;align-items:flex-start}
+.ebk li:before{content:"";flex:none;width:16px;height:16px;margin-top:2px;border-radius:50%;background:var(--lime) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231b2410' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E") center/11px no-repeat}
+.ebk .buy{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.ebk .pr{line-height:1}
+.ebk .pr small{display:block;font-size:11.5px;color:#b5b9a0;margin-bottom:4px}
+.ebk .pr b{font-family:var(--display);font-weight:900;font-size:38px;color:var(--lime)}
+.ebk a.go{flex:1 1 180px;display:inline-flex;justify-content:center;align-items:center;gap:8px;background:var(--lime);color:#1b2410;font:800 16px/1 var(--body);padding:16px 18px;border-radius:12px;box-shadow:0 6px 0 -2px #7d9a2c}
+.ebk .nt{margin:12px 0 0;font-size:12px;color:#b5b9a0}
 /* destaque EsPCEx */
 .spot{margin-top:24px;background:var(--hero);color:var(--herofg);border-radius:18px;padding:16px 14px 14px;border:1px solid #2c3a1c;box-shadow:0 10px 24px -12px rgba(0,0,0,.5)}
 .spot[hidden]{display:none}
@@ -106,6 +127,13 @@ footer b{color:var(--fg)}
 </div></div>
 
 <main class="w">
+ <section class="ebk" id="ebksec"><span class="tg">Ebook do canal</span>
+  <div class="row"><div class="cv" aria-hidden="true"><small>Ebook</small><b>Vídeos com Claude</b><i>do tema viral ao reel pronto</i></div>
+  <h2>Do tema viral ao reel pronto</h2></div>
+  <p class="lead"><b>Vídeos com Claude</b>: aprenda a criar reels de alta qualidade com o Claude, sem gastar uma fortuna. O passo a passo que usamos aqui no perfil.</p>
+  <ul><li>Roteiro e esquema do vídeo, do tema ao prompt mestre</li><li>Imagens de domínio público e montagem do reel</li><li>Sem cursos caros, enrolados ou repetitivos</li></ul>
+  <div class="buy"><div class="pr"><small>Ebook digital</small><b>R$ 29,90</b></div><a class="go" href="https://go.hotmart.com/N108451220J" target="_blank" rel="noopener">Quero o ebook <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+  <p class="nt">Compra segura pelo Hotmart.</p></section>
  <section class="spot" id="spotsec" hidden><span class="tg">Em destaque</span><h2>Preparatório EsPCEx</h2><p class="sub">Para quem quer a vaga de cadete na AMAN. Cursos escolhidos a dedo.</p><div class="rail" id="spot"></div></section>
  <section class="sec" id="featsec"><div class="sh"><h2>Mais indicados</h2><span>Escolhas do canal</span></div><div class="bar"></div><div class="rail" id="rail"></div></section>
  <div id="groups"></div>
@@ -298,7 +326,7 @@ document.getElementById("n-all").textContent=I.length;document.getElementById("n
 var cur="all";
 function apply(){var q=document.getElementById("q").value.trim().toLowerCase(),any=false;
   document.getElementById("featsec").hidden=!(cur==="all"&&!q);
-  document.getElementById("spotsec").hidden=!(cur==="all"&&!q);
+  document.getElementById("spotsec").hidden=!(cur==="all"&&!q);document.getElementById("ebksec").hidden=!(cur==="all"&&!q);
   document.querySelectorAll(".grp").forEach(function(g){var show=cur==="all"||g.getAttribute("data-k")===cur,n=0;
     g.querySelectorAll(".card").forEach(function(c){var ok=!q||c.getAttribute("data-s").indexOf(q)>-1;c.hidden=!ok;if(ok)n++});
     g.hidden=!show||n===0;if(!g.hidden)any=true});
